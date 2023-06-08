@@ -1,9 +1,19 @@
-.container {
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#container {
     display: flex;
     flex-wrap: wrap;
+    width: 600px;
+    height: 600px;
+    align-content: flex-start;
+    flex-grow: 0;
 }
 
 .square {
     background-color: black;
-    padding-bottom: 20%;
+    /* height and width = widthOfContainer / amountOfSquares - (2 * margin) */
+    margin: 1px;
 }
