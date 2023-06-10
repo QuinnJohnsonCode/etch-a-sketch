@@ -8,6 +8,14 @@ function sketch(numberOfSquares = 16) {
     appendSquares(numberOfSquares, SIZE_PER_SQUARE, CONTAINER);
 }
 
+function getRandomRGBColor() {
+    const R = Math.random() * 256;
+    const G = Math.random() * 256;
+    const B = Math.random() * 256;
+
+    return 'rgb(' + R + ',' + G + ',' + B + ')';
+}
+
 function clearContainer(container) {
     container.textContent = "";
 }
@@ -21,7 +29,7 @@ function appendSquares(numberOfSquares, sizePerSquare, container) {
 
 function colorSquare(event) {
     const SQUARE_TO_UPDATE = event.target;
-    SQUARE_TO_UPDATE.style.backgroundColor = "#AAAAAA";
+    SQUARE_TO_UPDATE.style.backgroundColor = getRandomRGBColor();
 }
 
 function getSquareReference(size) {
