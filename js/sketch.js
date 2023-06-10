@@ -3,7 +3,7 @@ function sketch() {
     const CONTAINER = document.getElementById("container");
     const SQUARE_MARGIN = 1;
 
-    let numberOfSquares = 50; // 16x16 to start with
+    let numberOfSquares = 16; // 16x16 to start with
     let sizePerSquare = getSquareSize(numberOfSquares, GRID_SIZE, SQUARE_MARGIN);
 
     appendSquares(numberOfSquares, sizePerSquare, CONTAINER);
@@ -11,10 +11,14 @@ function sketch() {
 
 function appendSquares(numberOfSquares, sizePerSquare, container) {
     const TOTAL_SQUARES = numberOfSquares * numberOfSquares; // squares by squares
-    
     for (let i = 0; i < TOTAL_SQUARES; i++) {
         container.appendChild(getSquareReference(sizePerSquare));
     }
+}
+
+function colorSquare(event) {
+    const SQUARE_TO_UPDATE = event.target;
+    SQUARE_TO_UPDATE.style.backgroundColor = "#AAAAAA";
 }
 
 function getSquareReference(size) {
@@ -22,6 +26,8 @@ function getSquareReference(size) {
     square.classList.add("square");
     square.style.width = size + "px";
     square.style.height = size + "px";
+
+    square.addEventListener("mouseover", colorSquare);
 
     return square;
 }
