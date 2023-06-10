@@ -1,12 +1,15 @@
-function sketch() {
+function sketch(numberOfSquares = 16) {
     const GRID_SIZE = 600; // px
     const CONTAINER = document.getElementById("container");
     const SQUARE_MARGIN = 1;
+    const SIZE_PER_SQUARE = getSquareSize(numberOfSquares, GRID_SIZE, SQUARE_MARGIN);
 
-    let numberOfSquares = 16; // 16x16 to start with
-    let sizePerSquare = getSquareSize(numberOfSquares, GRID_SIZE, SQUARE_MARGIN);
+    clearContainer(container);
+    appendSquares(numberOfSquares, SIZE_PER_SQUARE, CONTAINER);
+}
 
-    appendSquares(numberOfSquares, sizePerSquare, CONTAINER);
+function clearContainer(container) {
+    container.textContent = "";
 }
 
 function appendSquares(numberOfSquares, sizePerSquare, container) {
