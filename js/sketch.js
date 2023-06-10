@@ -45,10 +45,18 @@ function getSquareReference(size) {
 
 function getSquareSize(numberOfSquares, gridSize, margin) {
     // will give a size in pixels based on this formula
-    // size = gridSize / numberOfSquares - (2 * margin)
-
     let size = gridSize / numberOfSquares - (2 * margin);
     return size.toFixed(3);
 }
 
+function resizeCanvas() {
+    let numberOfSquares = 0;
+    do {
+        numberOfSquares = parseInt(prompt("Enter the number of squares desired", "16"));
+    } while (numberOfSquares <= 0 || numberOfSquares > 100);
+
+    sketch(numberOfSquares);
+}
+
+document.getElementById("resize-button").addEventListener("click", resizeCanvas);
 sketch();
